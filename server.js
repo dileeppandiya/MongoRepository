@@ -10,27 +10,9 @@ MongoClient.connect(url, function (err, database) {
     db = database;
 });
 
-app.use(bodyparser.json());
-app.use(express.static('public'));
-
-var insertDocument = function (db, document, callback) {
-    // Get the documents collection
-    var collection = db.collection('documents');
-    // Insert some documents
-    collection.insertOne(document, function (err, result) {
-        callback(err, JSON.stringify(result.ops[0]));
-    });
-};
-
-app.post('/hello', function (req, res) {
-    var data = req.body;
-    insertDocument(db, data, function(err, result) {
-        res.status(201).send(result)
-    })
+app.get('/', function (req, res) {
+  res.send('Hello world\n');
 });
 
-app.get('/hello', function (req, res) {
-    res.send('world');
-});
 
 app.listen(8080);
