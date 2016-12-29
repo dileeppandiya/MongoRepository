@@ -6,7 +6,7 @@ app.listen(3000, function() {
 })
 
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://localhost:27017/test';
+var url = 'mongodb://192.168.99.100:27017/test';
 var db;
 
 MongoClient.connect(url, function (err, database) {
