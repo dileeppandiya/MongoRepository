@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyparser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
-var url = 'mongodb://' + process.env.MONGO_PORT_27017_TCP_ADDR + ':27017/dockerdemo';
+var url = 'mongodb://' + process.env.MONGO_PORT_27017_TCP_ADDR + ':27017';
 var db;
 
 MongoClient.connect(url, function (err, database) {
